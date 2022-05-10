@@ -9,17 +9,15 @@
     </tr>
   </thead>
   <tbody>
-    <% if @books.any? do%>
-      <% @books.each do |book| %>
-        <tr>
-          <td>
-            <%= book.title %>
-          </td>
-          <td>
-            <%= book.opinion %>
-          </td>
-        </tr>
-      <% end %>
+    <% @books.each do |book| %>
+      <tr>
+        <td>
+          <%= book.title %>
+        </td>
+        <td>
+          <%= book.body %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>

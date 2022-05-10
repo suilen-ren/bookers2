@@ -1,6 +1,9 @@
 
 <h1>User info</h1>
     <%#ここにユーザー情報を表示 %>
+    <%# ユーザーの画像を表示 %>
+    <p>name:<%= @user.name %></p>
+    <p>introduction: <%= @user.introduction %></p>
 
 
 
@@ -9,7 +12,7 @@
         <p>title</p>
     <%= f.text_field :title  %>
     <p>Opinion</p>
-    <%= f.text_area :opinion %>
+    <%= f.text_area :body %>
 
     <%= f.submit 'Create book', class: "btn btn-success" %>
 <% end %>

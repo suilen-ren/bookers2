@@ -5,9 +5,9 @@
 <%= @showbook.title %>
 
 <p>opinion</p>
-<%= @showbook.opinion %>
+<%= @showbook.body %>
 
-<% if @showbook.user.id == current_user.id %>
+<% if @showbook.user == current_user %>
   <%= link_to "edit" ,edit_book_path(@showbook.id) %>
   <%= link_to "destroy" ,book_path(@showbook.id), method: :delete %>
-  <% end %>
+<% end %>
