@@ -1,11 +1,11 @@
-<div class ="container">
+<div class ="container px-5 px-sm-0">
   <div class = "row">
-    <div class = "col-3">
+    <div class = "col-md-3">
       <%= render 'sidebar' %>
     </div>
-    <div class ="col-8">
+    <div class ="col-md-8 offset-md-1">
       <h2>Book detail</h2>
-      <table class="table">
+      <table class="table table-hover">
         <tbody>
           <tr>
             <td><%= image_tag @showbook.user.get_profile_image(100,100)%><br><%= link_to @showbook.user.name , user_path(@showbook.user.id)%></td>
@@ -13,7 +13,7 @@
             <td><%= @showbook.body %></td>
             <% if @showbook.user == current_user %>
               <td><%= link_to "Edit" ,edit_book_path(@showbook.id) , class: "btn btn-success"%></td>
-              <td><%= link_to "destroy" ,book_path(@showbook.id), method: :delete ,class: "btn btn-danger" %></td>
+              <td><%= link_to "Destroy" ,book_path(@showbook.id), method: :delete ,class: "btn btn-danger" %></td>
             <% end %>
           </tr>
         </tbody>

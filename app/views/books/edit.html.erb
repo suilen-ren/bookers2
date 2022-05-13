@@ -2,11 +2,12 @@
   <div class="row">
     <div class="col-6 mx-auto">
       <h2>Editing Book</h2>
+        <%= render "errors", object: @book %>
       <%= form_with model: @book ,method: :patch do |f| %>
         <div class ="form-group">
-          <label for ="book_title">Title</label>
+          <label for ="book_title">title</label>
           <%= f.text_field :title ,id: "book_title" ,class: "form-control" %>
-          <label for ="book_body">Opinion</label>
+          <label for ="book_body">opinion</label>
           <%= f.text_area :body ,id: "book_body" , class: "form-control"%>
         </div>
         <%= f.submit "Update Book", class: "btn btn-success"%>

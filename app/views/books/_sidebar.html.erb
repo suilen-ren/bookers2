@@ -17,12 +17,13 @@
     </tbody>
 </table>
 
-<% if @user == current_user %>
 
-    <%= link_to "edit profile", edit_user_path(@user.id) ,class: "btn btn-block btn-outline-secondary"%>
+<%= link_to edit_user_path(@user.id) ,class: "btn btn-block btn-outline-secondary" do %>
+    <i class ="fas fa-user-cog"></i>
 <% end %>
 
-<h2>New Book</h2>
+
+<h2>New book</h2>
 
 <%= form_with model: @book do |f| %>
     <div class ="form-group">
@@ -31,5 +32,5 @@
         <label for ="book_body">Opinion</label>
         <%= f.text_area :body ,id: "book_body", class: "form-control"%>
     </div>
-    <%= f.submit 'Create book', class: "btn btn-success" %>
+    <%= f.submit 'Create Book', class: "btn btn-success" %>
 <% end %>

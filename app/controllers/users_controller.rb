@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  before_action :ensure_current_user, {only: [:edit, :update]}
+
+  def ensure_current_user
+    if current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to user_path(current_user.id)
+    end
+  end
 
   def index
     @book = Book.new
@@ -21,6 +29,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
+      flash[:notice] = "You have updated user successfully"
       redirect_to user_path(@user.id)
     else
       render :edit
@@ -31,6 +40,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name ,:introduction, :profile_image)
   end
 end
